@@ -3347,6 +3347,637 @@ footer {
   }
 })();
 </script>
+<style>
+  /* ============================================
+   📱 MOBILE MEGA-ANIMATIONS - EXTREME EDITION
+   Each section gets EXHAUSTIVE animations on mobile!
+   Every scroll = CINEMATIC EXPERIENCE
+   ============================================ */
 
+@media (max-width: 768px) {
+  
+  /* Reset mobile base animations - More aggressive! */
+  .scroll-animate {
+    opacity: 0;
+    will-change: transform, opacity, filter, clip-path, letter-spacing;
+  }
+  
+  /* ========== 🔥 HERO - SUPERNOVA BURST (Mobile) ========== */
+  .hero-animate {
+    animation: mobileHeroNova 1.1s cubic-bezier(0.2, 1.6, 0.4, 1) forwards !important;
+  }
+  @keyframes mobileHeroNova {
+    0% {
+      opacity: 0;
+      transform: translateY(80px) scale(0.3) rotate(-5deg);
+      filter: blur(20px);
+      letter-spacing: 15px;
+    }
+    30% {
+      opacity: 0.5;
+      transform: translateY(-20px) scale(1.1) rotate(2deg);
+      filter: blur(8px);
+      letter-spacing: 5px;
+    }
+    60% {
+      opacity: 0.9;
+      transform: translateY(10px) scale(0.98) rotate(-1deg);
+      filter: blur(2px);
+      letter-spacing: 2px;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotate(0);
+      filter: blur(0);
+      letter-spacing: normal;
+    }
+  }
+  
+  /* ========== ✂️ ABOUT - SLICING SCISSORS (Mobile) ========== */
+  .about-left-animate {
+    animation: mobileRazorLeft 0.9s cubic-bezier(0.1, 1.8, 0.3, 1) forwards !important;
+  }
+  @keyframes mobileRazorLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-180px) skewX(50deg) scale(0.5);
+      clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+      filter: blur(15px);
+    }
+    40% {
+      opacity: 0.7;
+      transform: translateX(25px) skewX(-15deg) scale(1.08);
+      filter: blur(3px);
+    }
+    70% {
+      opacity: 0.95;
+      transform: translateX(-8px) skewX(5deg) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) skewX(0) scale(1);
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      filter: blur(0);
+    }
+  }
+  
+  .about-right-animate {
+    animation: mobileRazorRight 0.9s cubic-bezier(0.1, 1.8, 0.3, 1) forwards !important;
+  }
+  @keyframes mobileRazorRight {
+    0% {
+      opacity: 0;
+      transform: translateX(180px) skewX(-50deg) scale(0.5);
+      clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+      filter: blur(15px);
+    }
+    40% {
+      opacity: 0.7;
+      transform: translateX(-25px) skewX(15deg) scale(1.08);
+      filter: blur(3px);
+    }
+    70% {
+      opacity: 0.95;
+      transform: translateX(8px) skewX(-5deg) scale(0.98);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) skewX(0) scale(1);
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      filter: blur(0);
+    }
+  }
+  
+  /* ========== 🌌 SERVICES - VORTEX WHIRLPOOL (Mobile) ========== */
+  .services-animate {
+    animation: mobileVortex 1s cubic-bezier(0.2, 2, 0.4, 1) forwards !important;
+    transform-origin: center;
+  }
+  @keyframes mobileVortex {
+    0% {
+      opacity: 0;
+      transform: rotate(-180deg) scale(0) translateY(60px);
+      filter: blur(20px);
+    }
+    35% {
+      opacity: 0.6;
+      transform: rotate(15deg) scale(1.12) translateY(-15px);
+      filter: blur(5px);
+    }
+    65% {
+      opacity: 0.95;
+      transform: rotate(-5deg) scale(0.96) translateY(5px);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(0) scale(1) translateY(0);
+      filter: blur(0);
+    }
+  }
+  
+  /* ========== 💥 WHY IMAGE - EARTHQUAKE SHAKE (Mobile) ========== */
+  .why-image-animate {
+    animation: mobileEarthquake 1.2s cubic-bezier(0.34, 2.2, 0.64, 1) forwards !important;
+  }
+  @keyframes mobileEarthquake {
+    0% {
+      opacity: 0;
+      transform: scale(0.1) rotate(-720deg) skewX(45deg);
+      filter: blur(40px);
+    }
+    20% {
+      opacity: 0.4;
+      transform: scale(1.3) rotate(30deg) skewX(-20deg);
+    }
+    40% {
+      opacity: 0.7;
+      transform: scale(1.1) rotate(-15deg) skewX(10deg);
+    }
+    60% {
+      opacity: 0.9;
+      transform: scale(0.98) rotate(8deg) skewX(-5deg);
+      filter: blur(5px);
+    }
+    80% {
+      transform: scale(1.02) rotate(-3deg) skewX(2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0) skewX(0);
+      filter: blur(0);
+    }
+  }
+  
+  /* ========== 💚 WHY TEXT - LIQUID SPLASH (Mobile) ========== */
+  .why-text-animate {
+    animation: mobileLiquidSplash 0.9s cubic-bezier(0.2, 1.7, 0.4, 1) forwards !important;
+  }
+  @keyframes mobileLiquidSplash {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px) rotateX(130deg) scale(0.5);
+      filter: blur(18px);
+      letter-spacing: 12px;
+    }
+    30% {
+      opacity: 0.5;
+      transform: translateY(30px) rotateX(-20deg) scale(1.1);
+      text-shadow: -3px 0 #ff0000, 3px 0 #00ff00, 0 3px #0000ff;
+    }
+    55% {
+      opacity: 0.85;
+      transform: translateY(-10px) rotateX(8deg) scale(0.97);
+      text-shadow: 2px 0 #f7931e, -2px 0 #ffb347;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) rotateX(0) scale(1);
+      filter: blur(0);
+      letter-spacing: normal;
+      text-shadow: none;
+    }
+  }
+  
+  /* ========== 🎯 WHY CARDS - BOUNCE CHAOS (Mobile) ========== */
+  .why-card-animate {
+    animation: mobileBounceChaos 0.8s cubic-bezier(0.34, 2.5, 0.64, 1) forwards !important;
+  }
+  @keyframes mobileBounceChaos {
+    0% {
+      opacity: 0;
+      transform: translateY(200px) scale(0.1) rotateX(120deg);
+      filter: blur(15px);
+    }
+    45% {
+      opacity: 1;
+      transform: translateY(-40px) scale(1.15) rotateX(-25deg);
+      filter: blur(2px);
+    }
+    70% {
+      transform: translateY(15px) scale(0.96) rotateX(10deg);
+    }
+    85% {
+      transform: translateY(-5px) scale(1.01) rotateX(-3deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotateX(0);
+      filter: blur(0);
+    }
+  }
+  
+  /* ========== 📂 PROCESS - ACCORDION EXPLOSION (Mobile) ========== */
+  .process-animate {
+    animation: mobileAccordion 0.85s cubic-bezier(0.2, 2, 0.4, 1) forwards !important;
+  }
+  @keyframes mobileAccordion {
+    0% {
+      opacity: 0;
+      transform: scaleX(0) scaleY(0) rotate(-90deg);
+      filter: blur(12px);
+    }
+    40% {
+      opacity: 0.7;
+      transform: scaleX(1.2) scaleY(1.2) rotate(10deg);
+      filter: blur(3px);
+    }
+    70% {
+      transform: scaleX(0.95) scaleY(0.95) rotate(-3deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scaleX(1) scaleY(1) rotate(0);
+      filter: blur(0);
+    }
+  }
+  
+  /* ========== 📊 STATS - SPIRAL BURST (Mobile) ========== */
+  .stats-animate {
+    animation: mobileSpiralBurst 0.75s cubic-bezier(0.34, 2.8, 0.64, 1) forwards !important;
+  }
+  @keyframes mobileSpiralBurst {
+    0% {
+      opacity: 0;
+      transform: scale(0) rotate(-540deg) translateY(50px);
+      filter: blur(18px);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.3) rotate(25deg) translateY(-15px);
+      filter: blur(2px);
+    }
+    75% {
+      transform: scale(0.94) rotate(-5deg) translateY(5px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0) translateY(0);
+      filter: blur(0);
+    }
+  }
+  
+  /* ========== 🌊 INDUSTRIES - WAVE CRASH (Mobile) ========== */
+  .industries-animate {
+    animation: mobileWaveCrash 0.9s cubic-bezier(0.2, 1.8, 0.4, 1) forwards !important;
+  }
+  @keyframes mobileWaveCrash {
+    0% {
+      opacity: 0;
+      transform: translateX(-150px) skewX(60deg) scale(0.4);
+      filter: blur(20px);
+    }
+    40% {
+      opacity: 0.6;
+      transform: translateX(40px) skewX(-25deg) scale(1.15);
+      filter: blur(5px);
+    }
+    70% {
+      opacity: 0.95;
+      transform: translateX(-15px) skewX(8deg) scale(0.97);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) skewX(0) scale(1);
+      filter: blur(0);
+    }
+  }
+  
+  /* ========== 🌋 CTA - VOLCANO ERUPTION (Mobile) ========== */
+  .cta-animate {
+    animation: mobileVolcano 1s cubic-bezier(0.34, 2.5, 0.64, 1) forwards !important;
+  }
+  @keyframes mobileVolcano {
+    0% {
+      opacity: 0;
+      transform: scale(0) translateY(180px) rotate(-900deg);
+      filter: blur(35px);
+    }
+    35% {
+      opacity: 0.6;
+      transform: scale(1.25) translateY(-30px) rotate(20deg);
+      filter: blur(8px);
+    }
+    60% {
+      opacity: 0.95;
+      transform: scale(0.95) translateY(15px) rotate(-6deg);
+    }
+    80% {
+      transform: scale(1.02) translateY(-3px) rotate(2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0) rotate(0);
+      filter: blur(0);
+    }
+  }
+  
+  /* ========== ✨ FOOTER - GALAXY RISE (Mobile) ========== */
+  .footer-animate {
+    animation: mobileGalaxy 0.85s cubic-bezier(0.2, 1.6, 0.4, 1) forwards !important;
+  }
+  @keyframes mobileGalaxy {
+    0% {
+      opacity: 0;
+      transform: translateY(130px) scale(0.3) rotateX(90deg);
+      filter: blur(20px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateY(-20px) scale(1.08) rotateX(-15deg);
+      filter: blur(4px);
+    }
+    80% {
+      transform: translateY(8px) scale(0.98) rotateX(5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotateX(0);
+      filter: blur(0);
+    }
+  }
+  
+  /* ========== EXTRA: STAGGER DELAYS FOR MOBILE ========== */
+  .delay-0 { animation-delay: 0s !important; }
+  .delay-1 { animation-delay: 0.08s !important; }
+  .delay-2 { animation-delay: 0.16s !important; }
+  .delay-3 { animation-delay: 0.24s !important; }
+  .delay-4 { animation-delay: 0.32s !important; }
+  .delay-5 { animation-delay: 0.4s !important; }
+  .delay-6 { animation-delay: 0.48s !important; }
+  .delay-7 { animation-delay: 0.56s !important; }
+  .delay-8 { animation-delay: 0.64s !important; }
+  .delay-9 { animation-delay: 0.72s !important; }
+  
+  /* ========== ENHANCED PARTICLE EFFECTS FOR MOBILE ========== */
+  @keyframes mobileParticleExplosion {
+    0% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(2);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(3.5);
+      opacity: 0;
+    }
+  }
+  
+  .particle-flare {
+    position: relative;
+  }
+  
+  .particle-flare::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    background: radial-gradient(circle, rgba(247,147,30,0.7) 0%, rgba(247,147,30,0.3) 30%, transparent 70%);
+    animation: mobileParticleExplosion 0.6s ease-out forwards;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  
+  /* ========== EXTRA GLOW EFFECTS FOR MOBILE ========== */
+  @keyframes mobileNeonPulse {
+    0% { 
+      box-shadow: 0 0 0 0 rgba(247, 147, 30, 0.6);
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.01);
+    }
+    70% { 
+      box-shadow: 0 0 0 15px rgba(247, 147, 30, 0);
+      transform: scale(1);
+    }
+    100% { 
+      box-shadow: 0 0 0 0 rgba(247, 147, 30, 0);
+      transform: scale(1);
+    }
+  }
+  
+  .neon-glow-animate {
+    animation: mobileNeonPulse 0.8s ease-out;
+  }
+  
+  /* ========== ENSURE ALL ELEMENTS ANIMATE ON MOBILE ========== */
+  .service-card,
+  .why-card-new,
+  .process-step,
+  .stat-item {
+    animation-fill-mode: forwards !important;
+  }
+  
+  /* Fix for any hidden elements on mobile */
+  .why-visual-large img {
+    display: block !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  footer {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ============================================
+   TABLET OPTIMIZATION (769px - 1024px)
+   Still animated but slightly smoother
+   ============================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  
+  .hero-animate {
+    animation: heroGlitchExplosion 0.9s cubic-bezier(0.16, 1.5, 0.3, 1) forwards !important;
+  }
+  
+  .services-animate {
+    animation: blackHoleSpiral 0.85s cubic-bezier(0.2, 1.7, 0.4, 1) forwards !important;
+  }
+  
+  .why-image-animate {
+    animation: quantumFrag 1s cubic-bezier(0.34, 1.8, 0.64, 1) forwards !important;
+  }
+  
+  .cta-animate {
+    animation: meteorImpact 0.9s cubic-bezier(0.34, 2.2, 0.64, 1) forwards !important;
+  }
+  
+  /* Tablet stagger delays */
+  .delay-0 { animation-delay: 0s !important; }
+  .delay-1 { animation-delay: 0.05s !important; }
+  .delay-2 { animation-delay: 0.1s !important; }
+  .delay-3 { animation-delay: 0.15s !important; }
+  .delay-4 { animation-delay: 0.2s !important; }
+  .delay-5 { animation-delay: 0.25s !important; }
+  .delay-6 { animation-delay: 0.3s !important; }
+  .delay-7 { animation-delay: 0.35s !important; }
+  .delay-8 { animation-delay: 0.4s !important; }
+  .delay-9 { animation-delay: 0.45s !important; }
+}
+</style>
+<script>
+  // ============================================
+// 📱 ENHANCED MOBILE ANIMATION TRIGGER
+// Ensures animations fire properly on phones
+// ============================================
+
+(function() {
+  'use strict';
+  
+  // Detect mobile device
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+  
+  if (isMobile) {
+    console.log('%c📱 MOBILE MEGA-ANIMATIONS MODE ACTIVATED! 📱', 'color: #f7931e; font-size: 14px; font-weight: bold;');
+    
+    // More aggressive checking for mobile
+    let mobileCheckInterval;
+    
+    function forceMobileAnimations() {
+      const sections = document.querySelectorAll('#home, #about, #services, #why, #process, .stats-section, .industries-section, .cta-section, footer');
+      
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const isVisible = rect.bottom > 50 && rect.top < window.innerHeight - 50;
+        
+        if (isVisible) {
+          // Force trigger for hero
+          if (section.id === 'home') {
+            const heroLeft = section.querySelector('.hero-left');
+            const heroRight = section.querySelector('.hero-right');
+            if (heroLeft && !heroLeft.classList.contains('hero-animate')) {
+              heroLeft.classList.add('hero-animate');
+              if (heroLeft.classList.contains('particle-flare')) return;
+              heroLeft.classList.add('particle-flare');
+              setTimeout(() => heroLeft.classList.remove('particle-flare'), 600);
+            }
+            if (heroRight && !heroRight.classList.contains('hero-animate')) {
+              heroRight.classList.add('hero-animate');
+            }
+          }
+          
+          // Force trigger for about
+          if (section.id === 'about') {
+            const aboutLeft = section.querySelector('.slide-from-left');
+            const aboutRight = section.querySelector('.slide-from-right');
+            if (aboutLeft && !aboutLeft.classList.contains('about-left-animate')) {
+              aboutLeft.classList.add('about-left-animate');
+              aboutLeft.classList.add('particle-flare');
+              setTimeout(() => aboutLeft.classList.remove('particle-flare'), 600);
+            }
+            if (aboutRight && !aboutRight.classList.contains('about-right-animate')) {
+              aboutRight.classList.add('about-right-animate');
+            }
+          }
+          
+          // Force trigger for services cards
+          if (section.id === 'services') {
+            const cards = section.querySelectorAll('.service-card');
+            cards.forEach((card, idx) => {
+              if (!card.classList.contains('services-animate')) {
+                const delayClass = `delay-${idx % 10}`;
+                card.classList.add('services-animate', delayClass);
+                if (idx === 0 || idx === Math.floor(cards.length / 2)) {
+                  card.classList.add('particle-flare');
+                  setTimeout(() => card.classList.remove('particle-flare'), 600);
+                }
+              }
+            });
+          }
+          
+          // Force trigger for why cards
+          if (section.id === 'why') {
+            const whyText = section.querySelector('.slide-from-left');
+            const whyImage = section.querySelector('.why-visual-large');
+            const whyCards = section.querySelectorAll('.why-card-new');
+            
+            if (whyText && !whyText.classList.contains('why-text-animate')) {
+              whyText.classList.add('why-text-animate');
+              whyText.classList.add('particle-flare');
+              setTimeout(() => whyText.classList.remove('particle-flare'), 600);
+            }
+            if (whyImage && !whyImage.classList.contains('why-image-animate')) {
+              whyImage.classList.add('why-image-animate');
+            }
+            
+            whyCards.forEach((card, idx) => {
+              if (!card.classList.contains('why-card-animate')) {
+                const delayClass = `delay-${idx % 10}`;
+                card.classList.add('why-card-animate', delayClass);
+              }
+            });
+          }
+          
+          // Force trigger for process steps
+          if (section.id === 'process') {
+            const steps = section.querySelectorAll('.process-step');
+            steps.forEach((step, idx) => {
+              if (!step.classList.contains('process-animate')) {
+                const delayClass = `delay-${idx % 10}`;
+                step.classList.add('process-animate', delayClass);
+              }
+            });
+          }
+          
+          // Force trigger for stats
+          if (section.classList && section.classList.contains('stats-section')) {
+            const stats = section.querySelectorAll('.stat-item');
+            stats.forEach((stat, idx) => {
+              if (!stat.classList.contains('stats-animate')) {
+                const delayClass = `delay-${idx % 10}`;
+                stat.classList.add('stats-animate', delayClass);
+              }
+            });
+          }
+          
+          // Force trigger for CTA
+          if (section.classList && section.classList.contains('cta-section')) {
+            const ctaBox = section.querySelector('.cta-box');
+            if (ctaBox && !ctaBox.classList.contains('cta-animate')) {
+              ctaBox.classList.add('cta-animate');
+              ctaBox.classList.add('particle-flare');
+              setTimeout(() => ctaBox.classList.remove('particle-flare'), 700);
+            }
+          }
+        }
+      });
+    }
+    
+    // Run force animation on scroll for mobile
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          forceMobileAnimations();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    
+    // Run on load and every 1.5 seconds for stubborn elements
+    window.addEventListener('load', () => {
+      setTimeout(forceMobileAnimations, 100);
+      setTimeout(forceMobileAnimations, 500);
+      setTimeout(forceMobileAnimations, 1000);
+    });
+    
+    // Periodic check for elements that might have been missed
+    setInterval(forceMobileAnimations, 1500);
+    
+    // Also trigger on touch events for better responsiveness
+    document.addEventListener('touchstart', () => {
+      setTimeout(forceMobileAnimations, 50);
+    });
+    
+    // Initial force
+    setTimeout(forceMobileAnimations, 200);
+  }
+})();
+</script>
   </body>
 </html>
