@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Hasta Ventures | 360° Business Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- ============================================ -->
+  <!-- GLOBAL STYLES (Variables, Base, Reset) -->
+  <!-- ============================================ -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --orange: #f7931e;
+      --orange-dark: #e07c10;
+      --orange-light: #ffb347;
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray: #888;
+      --light-bg: #f8f5f1;
+      --card-bg: #ffffff;
+      --border: rgba(247, 147, 30, 0.15);
+    }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      background: var(--white);
+      font-family: "DM Sans", sans-serif;
+      color: var(--black);
+      overflow-x: hidden;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .section-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .section-title-main {
+      font-family: "Syne", sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 60px;
+    }
+    .section-title-main span { color: var(--orange); }
+  </style>
+
+<!-- ============================================ -->
+  <!-- SECTION 1: NAVBAR & CURSOR STYLES -->
+  <!-- ============================================ -->
+  <style>
+    /* Import Poppins font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+    
+    /* Custom Cursor - Only for desktop */
+    @media (min-width: 1024px) {
+      #cursor {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: var(--orange);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s, width 0.2s, height 0.2s;
+      }
+      #cursor-ring {
+        position: fixed;
+        width: 38px;
+        height: 38px;
+        border: 1.5px solid var(--orange);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: all 0.15s ease;
+        opacity: 0.6;
+      }
+    }
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 18px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      background: rgba(255, 255, 255, 0);
+    }
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 12px 5%;
+      box-shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid rgba(247, 147, 30, 0.15);
+    }
+    .logo img { height: 54px; width: auto; transition: transform 0.3s; }
+    .logo img:hover { transform: scale(1.02); }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      position: relative;
+      transition: color 0.3s;
+      font-family: 'Poppins', sans-serif;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--orange);
+      transition: width 0.3s;
+      border-radius: 2px;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover::after { width: 100%; }
+    .btn-nav {
+      background: var(--orange) !important;
+      color: #fff !important;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+    }
+    .btn-nav::after { display: none !important; }
+    .menu-icon { display: none; font-size: 1.6rem; cursor: pointer; color: var(--black); z-index: 1200; }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1050;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      backdrop-filter: blur(4px);
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--orange);
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      font-size: 0.9rem;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.02em;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(247, 147, 30, 0.35); }
+    .btn-outline { background: transparent; border: 2px solid var(--orange); color: var(--orange); }
+    .btn-outline:hover { background: var(--orange); color: white; }
+    
+    /* Mobile Navigation */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 340px;
+      height: 100vh;
+      background: var(--white);
+      z-index: 1100;
+      box-shadow: -10px 0 60px rgba(0, 0, 0, 0.12);
+      padding: 90px 32px 40px;
+      transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 24px;
+      overflow-y: auto;
+    }
+    .mobile-nav-header {
+      position: absolute;
+      top: 20px;
+      left: 28px;
+      right: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+    .mobile-nav-header img { height: 42px; width: auto; }
+    .close-menu { font-size: 1.8rem; cursor: pointer; color: var(--black); transition: color 0.2s; }
+    .close-menu:hover { color: var(--orange); }
+    .mobile-nav a {
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--black);
+      font-family: 'Poppins', sans-serif;
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .mobile-nav .btn-primary { text-align: center; margin-top: 20px; width: 100%; }
+    
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .menu-icon { display: block; }
+      .logo img { height: 50px; }
+    }
+    @media (max-width: 600px) {
+      .logo img { height: 55px; }
+      .mobile-nav-header img { height: 36px; }
+      .mobile-nav a { font-size: 1rem; padding: 10px 0; }
+    }
+  </style>
+
+ 
+
+</head>
+<body>
+
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ============================================ -->
+  <!-- SECTION 1: NAVBAR HTML -->
+  <!-- ============================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="logo"><img src="image-removebg-preview (3).png" alt="Hasta Ventures" /></div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+     <div class="nav-dropdown">
+  <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+
+  <div class="dropdown-menu">
+    <a href="#branding">Branding & Creative</a>
+    <a href="#marketing">Marketing & Growth</a>
+    <a href="#design">Design & Communication</a>
+    <a href="#events">Events & Experiences</a>
+    <a href="#hampers">Corporate Hampers</a>
+    <a href="#signages">Signages</a>
+    <a href="#media">Media Production</a>
+    <a href="#it-services">IT Services</a>
+    <a href="#cybersecurity">Cybersecurity</a>
+  </div>
+</div>
+<style>
+  .nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-dropdown i {
+  font-size: 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  min-width: 280px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(249,115,22,0.18);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 11px 14px;
+  color: #222;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(249,115,22,0.10);
+  color: #f97316;
+}
+
+.dropdown-menu a::after {
+  display: none;
+}
+</style>
+      <a href="#process">Process</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn-nav">Book Consultation</a>
+    </div>
+    <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
+  </nav>
+  <div class="overlay" id="overlay"></div>
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header"><img src="image.png" alt="Hasta Ventures" /><div class="close-menu" id="closeMenu"><i class="fas fa-times"></i></div></div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+   <div class="mobile-dropdown">
+  <button class="mobile-dropdown-btn" onclick="toggleMobileServices()">
+    Services <i class="fas fa-chevron-down"></i>
+  </button>
+
+  <div class="mobile-dropdown-menu" id="mobileServicesDropdown">
+    <a href="#branding">Branding & Creative</a>
+    <a href="#marketing">Marketing & Growth</a>
+    <a href="#design">Design & Communication</a>
+    <a href="#events">Events & Experiences</a>
+    <a href="#hampers">Corporate Hampers</a>
+    <a href="#signages">Signages</a>
+    <a href="#media">Media Production</a>
+    <a href="#it-services">IT Services</a>
+    <a href="#cybersecurity">Cybersecurity</a>
+  </div>
+</div>
+<style>
+  .mobile-dropdown {
+  width: 100%;
+}
+
+.mobile-dropdown-btn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 12px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--black);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.mobile-dropdown-btn i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-btn i {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: max-height 0.4s ease;
+  padding-left: 14px;
+}
+
+.mobile-dropdown.active .mobile-dropdown-menu {
+  max-height: 520px;
+  margin-top: 8px;
+}
+
+.mobile-dropdown-menu a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #444;
+  padding: 9px 0;
+  border-bottom: none;
+}
+</style>
+    <a href="#process">Process</a>
+    <a href="#why">Why Us</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn-primary" style="text-align:center">Book Consultation</a>
+  </div>
+
+
+
+  <!-- ============================================ -->
+  <!-- SECTION 10: MASTER JAVASCRIPT -->
+  <!-- ============================================ -->
+  <script>
+    // ============================================
+    // 1. NAVBAR & MOBILE MENU
+    // ============================================
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => { navbar.classList.toggle("scrolled", window.scrollY > 30); });
+    const menuIcon = document.getElementById("menuIcon"), mobileNav = document.getElementById("mobileNav"), overlay = document.getElementById("overlay"), closeMenu = document.getElementById("closeMenu");
+    menuIcon.onclick = () => { mobileNav.style.right = "0"; overlay.style.opacity = "1"; overlay.style.visibility = "visible"; };
+    const closeNav = () => { mobileNav.style.right = "-100%"; overlay.style.opacity = "0"; overlay.style.visibility = "hidden"; };
+    closeMenu.onclick = closeNav; overlay.onclick = closeNav;
+
+   
+  function toggleMobileServices() {
+    document.querySelector('.mobile-dropdown').classList.toggle('active');
+  }
+
+  </script>
+
+<section class="hv-branding-page">
+  <style>
+    .hv-branding-page{
+      position:relative;
+      min-height:100vh;
+      overflow:hidden;
+      background:#f6f4ef;
+      font-family:'Poppins',sans-serif;
+      padding:95px 6%;
+      display:flex;
+      align-items:center;
+    }
+
+    .hv-branding-page::before{
+      content:"";
+      position:absolute;
+      width:760px;
+      height:760px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(249,115,22,.30),rgba(249,115,22,.08) 48%,transparent 72%);
+      right:-220px;
+      top:-220px;
+      animation:brandGlow 7s ease-in-out infinite alternate;
+    }
+
+    .hv-branding-page::after{
+      content:"BRANDING";
+      position:absolute;
+      left:-25px;
+      bottom:20px;
+      font-size:clamp(90px,15vw,250px);
+      line-height:.8;
+      font-weight:900;
+      letter-spacing:-12px;
+      color:rgba(17,17,17,.045);
+      pointer-events:none;
+      animation:brandTextMove 14s linear infinite alternate;
+    }
+
+    .hv-branding-wrap{
+      position:relative;
+      z-index:2;
+      width:100%;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:55px;
+      align-items:center;
+    }
+
+    .hv-branding-label{
+      color:#f97316;
+      font-size:15px;
+      font-weight:800;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      margin-bottom:24px;
+      animation:brandFadeUp .9s ease forwards;
+    }
+
+    .hv-branding-title{
+      margin:0;
+      color:#111;
+      font-size:clamp(58px,6.8vw,128px);
+      line-height:.88;
+      font-weight:900;
+      letter-spacing:-6px;
+      text-transform:uppercase;
+      animation:brandFadeUp 1s ease forwards;
+    }
+
+    .hv-branding-title span{
+      color:#f97316;
+    }
+
+    .hv-branding-intro{
+      max-width:720px;
+      margin-top:34px;
+      font-size:21px;
+      line-height:1.65;
+      color:#444;
+      font-weight:500;
+      animation:brandFadeUp 1.1s ease forwards;
+    }
+
+    .hv-branding-btn{
+      display:inline-flex;
+      margin-top:34px;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      background:#f97316;
+      color:#fff;
+      padding:16px 30px;
+      border-radius:60px;
+      font-size:15px;
+      font-weight:800;
+      box-shadow:0 18px 45px rgba(249,115,22,.34);
+      transition:.35s ease;
+      animation:brandFadeUp 1.2s ease forwards;
+    }
+
+    .hv-branding-btn:hover{
+      transform:translateY(-4px);
+    }
+
+    .hv-branding-visual{
+      position:relative;
+      min-height:640px;
+      animation:brandPanelIn 1.1s ease forwards;
+    }
+
+    .hv-brand-img{
+      position:absolute;
+      overflow:hidden;
+      border-radius:32px;
+      box-shadow:0 30px 90px rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.45);
+      background:#fff;
+    }
+
+    .hv-brand-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter:grayscale(100%) brightness(.82) contrast(1.08);
+      transition:.6s ease;
+    }
+
+    .hv-brand-img:hover img{
+      transform:scale(1.08);
+      filter:grayscale(0%) brightness(.92) contrast(1.08);
+    }
+
+    .hv-brand-img-main{
+      width:68%;
+      height:420px;
+      right:0;
+      top:0;
+      animation:floatMain 5s ease-in-out infinite alternate;
+    }
+
+    .hv-brand-img-small{
+      width:46%;
+      height:260px;
+      left:0;
+      top:165px;
+      z-index:2;
+      animation:floatSmall 4.5s ease-in-out infinite alternate;
+    }
+
+    .hv-brand-img-bottom{
+      width:56%;
+      height:230px;
+      right:8%;
+      bottom:0;
+      z-index:3;
+      animation:floatBottom 5.5s ease-in-out infinite alternate;
+    }
+
+    .hv-branding-panel{
+      position:absolute;
+      left:20px;
+      right:20px;
+      bottom:42px;
+      z-index:5;
+      padding:28px;
+      border-radius:28px;
+      background:rgba(255,255,255,.68);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(249,115,22,.20);
+      box-shadow:0 30px 90px rgba(249,115,22,.16);
+    }
+
+    .hv-panel-title{
+      margin:0 0 18px;
+      color:#111;
+      font-size:30px;
+      line-height:1;
+      font-weight:900;
+      letter-spacing:-1px;
+      text-transform:uppercase;
+    }
+
+    .hv-panel-title span{
+      color:#f97316;
+    }
+
+    .hv-service-list{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .hv-service-item{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      padding:12px 13px;
+      border-radius:14px;
+      background:rgba(255,255,255,.78);
+      color:#111;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    .hv-service-item::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#f97316;
+      flex:0 0 auto;
+    }
+
+    .hv-branding-why{
+      padding:18px;
+      border-radius:18px;
+      background:#111;
+      color:#fff;
+    }
+
+    .hv-branding-why h3{
+      margin:0 0 8px;
+      color:#f97316;
+      font-size:14px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:2px;
+    }
+
+    .hv-branding-why p{
+      margin:0;
+      font-size:13px;
+      line-height:1.6;
+      color:rgba(255,255,255,.85);
+    }
+
+    @keyframes brandFadeUp{
+      from{opacity:0;transform:translateY(36px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    @keyframes brandPanelIn{
+      from{opacity:0;transform:translateX(45px) scale(.96);}
+      to{opacity:1;transform:translateX(0) scale(1);}
+    }
+
+    @keyframes brandGlow{
+      from{transform:scale(1);opacity:.8;}
+      to{transform:scale(1.12);opacity:1;}
+    }
+
+    @keyframes brandTextMove{
+      from{transform:translateX(0);}
+      to{transform:translateX(45px);}
+    }
+
+    @keyframes floatMain{
+      from{transform:translateY(0);}
+      to{transform:translateY(24px);}
+    }
+
+    @keyframes floatSmall{
+      from{transform:translateY(20px);}
+      to{transform:translateY(-16px);}
+    }
+
+    @keyframes floatBottom{
+      from{transform:translateY(0) translateX(0);}
+      to{transform:translateY(-20px) translateX(-14px);}
+    }
+
+    @media(max-width:768px){
+      .hv-branding-page{
+        padding:75px 20px;
+        align-items:flex-start;
+      }
+
+      .hv-branding-page::before{
+        width:430px;
+        height:430px;
+        right:-180px;
+        top:-130px;
+      }
+
+      .hv-branding-page::after{
+        left:-14px;
+        bottom:8px;
+        font-size:76px;
+        letter-spacing:-5px;
+      }
+
+      .hv-branding-wrap{
+        grid-template-columns:1fr;
+        gap:38px;
+      }
+
+      .hv-branding-label{
+        font-size:12px;
+        letter-spacing:3px;
+        margin-bottom:18px;
+      }
+
+      .hv-branding-title{
+        font-size:46px;
+        line-height:.94;
+        letter-spacing:-2px;
+      }
+
+      .hv-branding-intro{
+        margin-top:24px;
+        font-size:15px;
+        line-height:1.65;
+      }
+
+      .hv-branding-btn{
+        margin-top:26px;
+        width:100%;
+        padding:15px 24px;
+        font-size:14px;
+      }
+
+      .hv-branding-visual{
+        min-height:720px;
+      }
+
+      .hv-brand-img{
+        border-radius:24px;
+      }
+
+      .hv-brand-img-main{
+        width:82%;
+        height:270px;
+        right:0;
+        top:0;
+      }
+
+      .hv-brand-img-small{
+        width:58%;
+        height:190px;
+        left:0;
+        top:160px;
+      }
+
+      .hv-brand-img-bottom{
+        width:66%;
+        height:180px;
+        right:0;
+        top:310px;
+        bottom:auto;
+      }
+
+      .hv-branding-panel{
+        left:0;
+        right:0;
+        bottom:0;
+        padding:22px;
+        border-radius:24px;
+      }
+
+      .hv-panel-title{
+        font-size:26px;
+      }
+
+      .hv-service-list{
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+
+      .hv-service-item{
+        padding:12px 14px;
+        font-size:13px;
+      }
+
+      .hv-branding-why p{
+        font-size:12px;
+      }
+    }
+  </style>
+
+  <div class="hv-branding-wrap">
+
+    <div class="hv-branding-left">
+      <div class="hv-branding-label">Branding & Creative Page</div>
+
+      <h1 class="hv-branding-title">
+        WE DON’T JUST<br>
+        DESIGN BRANDS.<br>
+        <span>WE BUILD THEM.</span>
+      </h1>
+
+      <p class="hv-branding-intro">
+        We create brands that are clear, memorable, and built for long-term growth. From identity to positioning, we ensure your brand stands out and communicates effectively.
+      </p>
+
+      <a href="#contact" class="hv-branding-btn">Start Your Brand Project</a>
+    </div>
+
+    <div class="hv-branding-visual">
+
+      <div class="hv-brand-img hv-brand-img-main">
+        <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="Brand Identity Design">
+      </div>
+
+      <div class="hv-brand-img hv-brand-img-small">
+        <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="Logo and Visual Systems">
+      </div>
+
+      <div class="hv-brand-img hv-brand-img-bottom">
+        <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="Brand Strategy">
+      </div>
+
+    
+
+    </div>
+
+  </div>
+</section>
+
+<section class="hv-brand-services">
+
+  <div class="hv-brand-services-wrap">
+
+    <div class="hv-brand-services-left">
+      <div class="hv-brand-services-label">
+        Branding & Creative
+      </div>
+
+      <h2>
+        OUR<br>
+        SERVICES<span>.</span>
+      </h2>
+
+      <p>
+        We build brands that are memorable, scalable,
+        and strategically positioned for long-term growth.
+      </p>
+    </div>
+
+    <div class="hv-brand-services-grid">
+
+      <div class="hv-brand-card">
+        <span>01</span>
+        <h3>Brand Identity Design</h3>
+      </div>
+
+      <div class="hv-brand-card">
+        <span>02</span>
+        <h3>Logo & Visual Systems</h3>
+      </div>
+
+      <div class="hv-brand-card">
+        <span>03</span>
+        <h3>Brand Strategy</h3>
+      </div>
+
+      <div class="hv-brand-card">
+        <span>04</span>
+        <h3>Naming & Positioning</h3>
+      </div>
+
+      <div class="hv-brand-card">
+        <span>05</span>
+        <h3>Brand Guidelines</h3>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<section class="hv-brand-why-new">
+  <div class="hv-brand-why-card">
+    <div class="hv-brand-why-label">Why Us</div>
+
+    <h2>
+      STRATEGY<br>
+      BEHIND EVERY<br>
+      <span>CREATIVE MOVE.</span>
+    </h2>
+
+    <p>
+      We combine creativity with strategy, ensuring your brand is not just visually appealing but also aligned with business goals.
+    </p>
+  </div>
+</section>
+<style>
+    .hv-brand-services{
+  padding:120px 6%;
+  background:#fff;
+  font-family:'Poppins',sans-serif;
+}
+
+.hv-brand-services-wrap{
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:60px;
+  align-items:start;
+}
+
+.hv-brand-services-label,
+.hv-brand-why-label{
+  color:#f97316;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+.hv-brand-services h2,
+.hv-brand-why h2{
+  margin:0;
+  color:#111;
+  font-size:clamp(52px,5vw,95px);
+  line-height:.9;
+  font-weight:900;
+  letter-spacing:-4px;
+}
+
+.hv-brand-services h2 span,
+.hv-brand-why h2 span{
+  color:#f97316;
+}
+
+.hv-brand-services p{
+  margin-top:22px;
+  font-size:18px;
+  line-height:1.7;
+  color:#555;
+}
+
+.hv-brand-services-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.hv-brand-card{
+  background:#f6f4ef;
+  border-radius:26px;
+  padding:32px;
+  transition:.35s ease;
+  border:1px solid rgba(249,115,22,.12);
+}
+
+.hv-brand-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 25px 60px rgba(249,115,22,.12);
+}
+
+.hv-brand-card span{
+  color:#f97316;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.hv-brand-card h3{
+  margin:14px 0 0;
+  color:#111;
+  font-size:24px;
+  line-height:1.2;
+  font-weight:800;
+}
+
+.hv-brand-why{
+  padding:120px 6%;
+  background:#111;
+  color:#fff;
+  text-align:center;
+}
+
+.hv-brand-why p{
+  max-width:700px;
+  margin:30px auto 0;
+  font-size:20px;
+  line-height:1.8;
+  color:rgba(255,255,255,.85);
+}
+
+@media(max-width:768px){
+
+  .hv-brand-services{
+    padding:80px 20px;
+  }
+
+  .hv-brand-services-wrap{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .hv-brand-services-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hv-brand-services h2,
+  .hv-brand-why h2{
+    font-size:42px;
+    letter-spacing:-2px;
+  }
+
+  .hv-brand-card{
+    padding:24px;
+  }
+
+  .hv-brand-card h3{
+    font-size:20px;
+  }
+
+  .hv-brand-why{
+    padding:80px 20px;
+  }
+
+  .hv-brand-why p{
+    font-size:15px;
+    line-height:1.7;
+  }
+}
+@media(max-width:768px){
+  .hv-branding-page{
+    min-height:auto;
+    padding-bottom:30px;
+  }
+
+  .hv-branding-visual{
+    min-height:500px;
+    margin-bottom:0;
+  }
+
+  .hv-brand-services{
+    padding-top:55px;
+  }
+}
+.hv-brand-why-new{
+  padding:110px 6%;
+  background:#f6f4ef;
+  font-family:'Poppins',sans-serif;
+}
+
+.hv-brand-why-card{
+  position:relative;
+  overflow:hidden;
+  padding:70px;
+  border-radius:36px;
+  background:#111;
+  color:#fff;
+}
+
+.hv-brand-why-card::after{
+  content:"WHY";
+  position:absolute;
+  right:-20px;
+  bottom:-25px;
+  font-size:190px;
+  font-weight:900;
+  color:rgba(249,115,22,.13);
+  letter-spacing:-10px;
+}
+
+.hv-brand-why-label{
+  color:#f97316;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+.hv-brand-why-card h2{
+  position:relative;
+  z-index:2;
+  margin:0;
+  font-size:clamp(52px,6vw,110px);
+  line-height:.9;
+  font-weight:900;
+  letter-spacing:-5px;
+}
+
+.hv-brand-why-card h2 span{
+  color:#f97316;
+}
+
+.hv-brand-why-card p{
+  position:relative;
+  z-index:2;
+  max-width:720px;
+  margin-top:30px;
+  font-size:20px;
+  line-height:1.7;
+  color:rgba(255,255,255,.84);
+}
+
+@media(max-width:768px){
+  .hv-brand-why-new{
+    padding:70px 20px;
+  }
+
+  .hv-brand-why-card{
+    padding:38px 24px;
+    border-radius:28px;
+  }
+
+  .hv-brand-why-card::after{
+    font-size:96px;
+    right:-10px;
+    bottom:-10px;
+  }
+
+  .hv-brand-why-card h2{
+    font-size:38px;
+    letter-spacing:-2px;
+  }
+
+  .hv-brand-why-card p{
+    font-size:14px;
+    line-height:1.65;
+  }
+}
+</style>
+
+</body>
+</html>
