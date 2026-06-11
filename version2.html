@@ -249,13 +249,84 @@
   <nav class="navbar" id="navbar">
     <div class="logo"><img src="image-removebg-preview (3).png" alt="Hasta Ventures" /></div>
     <div class="nav-links">
-      <a href="#home">Home</a>
+      <a href="version2.html">Home</a>
       <a href="#about">About</a>
-      <a href="#services">Services</a>
+     <div class="nav-dropdown">
+  <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+
+  <div class="dropdown-menu">
+    <a href="branding.html">Branding & Creative</a>
+    <a href="marketing.html">Marketing & Growth</a>
+    <a href="design.html">Design & Communication</a>
+    <a href="events.html">Events & Experiences</a>
+    <a href="hampers.html">Corporate Hampers</a>
+    <a href="signages.html">Signages</a>
+    <a href="media.html">Media Production</a>
+    <a href="it-services.html">IT Services</a>
+    <a href="cybersecurity.html">Cybersecurity</a>
+  </div>
+</div>
+<style>
+  .nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-dropdown i {
+  font-size: 10px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  min-width: 280px;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(249,115,22,0.18);
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 11px 14px;
+  color: #222;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(249,115,22,0.10);
+  color: #f97316;
+}
+
+.dropdown-menu a::after {
+  display: none;
+}
+</style>
       <a href="#process">Process</a>
       <a href="#why">Why Us</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="btn-nav">Book Consultation</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn-nav">Book Consultation</a>
     </div>
     <div class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></div>
   </nav>
@@ -264,11 +335,79 @@
     <div class="mobile-nav-header"><img src="image.png" alt="Hasta Ventures" /><div class="close-menu" id="closeMenu"><i class="fas fa-times"></i></div></div>
     <a href="#home">Home</a>
     <a href="#about">About</a>
-    <a href="#services">Services</a>
+   <div class="mobile-dropdown">
+  <button class="mobile-dropdown-btn" onclick="toggleMobileServices()">
+    Services <i class="fas fa-chevron-down"></i>
+  </button>
+
+  <div class="mobile-dropdown-menu" id="mobileServicesDropdown">
+    <a href="branding.html">Branding & Creative</a>
+    <a href="marketing.html">Marketing & Growth</a>
+    <a href="design.html">Design & Communication</a>
+    <a href="events.html">Events & Experiences</a>
+    <a href="hampers.html">Corporate Hampers</a>
+    <a href="signages.html">Signages</a>
+    <a href="media.html">Media Production</a>
+    <a href="it-services.html">IT Services</a>
+    <a href="cybersecurity.html">Cybersecurity</a>
+  </div>
+</div>
+<style>
+  .mobile-dropdown {
+  width: 100%;
+}
+
+.mobile-dropdown-btn {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 12px 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--black);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.mobile-dropdown-btn i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-btn i {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: max-height 0.4s ease;
+  padding-left: 14px;
+}
+
+.mobile-dropdown.active .mobile-dropdown-menu {
+  max-height: 520px;
+  margin-top: 8px;
+}
+
+.mobile-dropdown-menu a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #444;
+  padding: 9px 0;
+  border-bottom: none;
+}
+</style>
     <a href="#process">Process</a>
     <a href="#why">Why Us</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="btn-primary" style="text-align:center">Book Consultation</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn-primary" style="text-align:center">Book Consultation</a>
   </div>
 
 
@@ -288,294 +427,339 @@
     closeMenu.onclick = closeNav; overlay.onclick = closeNav;
 
    
+  function toggleMobileServices() {
+    document.querySelector('.mobile-dropdown').classList.toggle('active');
+  }
+
   </script>
 
 
 
 
 <section class="ds-hero-section">
-  <style>
+ <style>
+  .ds-hero-section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .ds-bg-image,
+  .ds-main-image {
+    position: absolute;
+    inset: 0;
+  }
+
+  .ds-bg-image img,
+  .ds-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(55%);
+  }
+
+  .ds-bg-image::after,
+  .ds-main-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(249,115,22,0.22), rgba(255,255,255,0.05) 45%, rgba(249,115,22,0.28));
+    pointer-events: none;
+  }
+
+  .ds-intro {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    animation: introFade 2.4s ease forwards;
+  }
+
+  .ds-intro h1 {
+    color: #f97316;
+    font-size: clamp(56px, 9vw, 130px);
+    font-weight: 800;
+    letter-spacing: -4px;
+    animation: textPop 2s ease forwards;
+  }
+
+  .ds-main-image {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: imageKeyFrame 1.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    animation-delay: 2.1s;
+    z-index: 2;
+  }
+
+  .ds-main-image img {
+    transform: scale(1.12);
+    animation: imageZoomOut 3s ease forwards;
+    animation-delay: 2.1s;
+  }
+
+  .ds-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    color: #fff;
+    padding: 70px 80px;
+    opacity: 0;
+    animation: contentShow 1s ease forwards;
+    animation-delay: 3.6s;
+  }
+
+  .ds-small-title {
+    position: absolute;
+    top: 70px;
+    left: 80px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .ds-small-title span {
+    display: block;
+  }
+
+  .ds-main-title {
+    position: absolute;
+    left: 80px;
+    top: 28%;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: 0;
+    color: #fff;
+    z-index: 3;
+  }
+
+  .ds-big-we {
+    color: #f97316;
+    font-size: clamp(120px, 13vw, 230px);
+    line-height: 0.78;
+    font-weight: 900;
+    letter-spacing: -10px;
+  }
+
+  .ds-title-lines {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(50px, 6vw, 100px);
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: -3px;
+  }
+
+  .ds-dot {
+    color: #f97316;
+  }
+
+  .ds-content {
+    position: absolute;
+    right: 80px;
+    bottom: 80px;
+    max-width: 520px;
+  }
+
+  .ds-content p {
+    font-size: 28px;
+    line-height: 1.25;
+    font-weight: 500;
+    margin: 0 0 28px;
+  }
+
+  .ds-content strong {
+    color: #f97316;
+    font-weight: 800;
+  }
+
+  .ds-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .ds-buttons a {
+    text-decoration: none;
+    background: #f97316;
+    color: #fff;
+    padding: 14px 25px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 12px 35px rgba(249,115,22,0.45);
+  }
+
+  .ds-buttons a:last-child {
+    background: transparent;
+    border: 1px solid #f97316;
+    color: #fff;
+  }
+
+  @keyframes textPop {
+    0% { opacity: 0; transform: scale(0.92); }
+    35% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.08); }
+  }
+
+  @keyframes introFade {
+    0%, 80% { opacity: 1; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; }
+  }
+
+  @keyframes imageKeyFrame {
+    0% { opacity: 0; transform: translateY(100%); }
+    20% { opacity: 1; }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes imageZoomOut {
+    from { transform: scale(1.12); }
+    to { transform: scale(1); }
+  }
+
+  @keyframes contentShow {
+    from { opacity: 0; transform: translateY(35px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
     .ds-hero-section {
-      width: 100%;
       height: 100vh;
-      position: relative;
-      overflow: hidden;
-      background: #fff;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .ds-bg-image,
-    .ds-main-image {
-      position: absolute;
-      inset: 0;
-    }
-
-    .ds-bg-image img,
-    .ds-main-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(100%) brightness(55%);
-    }
-
-    .ds-bg-image::after,
-    .ds-main-image::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(249,115,22,0.22), rgba(255,255,255,0.05) 45%, rgba(249,115,22,0.28));
-      pointer-events: none;
     }
 
     .ds-intro {
-      position: absolute;
-      inset: 0;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 5;
-      animation: introFade 2.4s ease forwards;
+      background: transparent;
+      animation: introFadeMobile 2s ease forwards;
+      animation-delay: 1.2s;
     }
 
     .ds-intro h1 {
-      color: #f97316;
-      font-size: clamp(56px, 9vw, 130px);
-      font-weight: 800;
-      letter-spacing: -4px;
-      animation: textPop 2s ease forwards;
+      font-size: 42px;
+      text-align: center;
+      letter-spacing: -2px;
+    }
+
+    .ds-bg-image {
+      z-index: 1;
+    }
+
+    .ds-bg-image img {
+      filter: grayscale(100%) brightness(50%);
     }
 
     .ds-main-image {
-      opacity: 0;
-      transform: translateY(100%);
-      animation: imageKeyFrame 1.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-      animation-delay: 2.1s;
-      z-index: 2;
+      width: 72%;
+      height: 74%;
+      left: 50%;
+      top: auto;
+      bottom: -6%;
+      right: auto;
+      transform: translate(-50%, 120%);
+      animation: imageKeyFrameMobile 0.9s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+      animation-delay: 2.2s;
     }
 
     .ds-main-image img {
-      transform: scale(1.12);
-      animation: imageZoomOut 3s ease forwards;
-      animation-delay: 2.1s;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(100%) brightness(65%);
+      border-radius: 0;
+      animation: none;
+      transform: scale(1);
+    }
+
+    .ds-main-image::after {
+      background: radial-gradient(circle at center, rgba(249,115,22,0.25), transparent 58%);
     }
 
     .ds-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      color: #fff;
-      padding: 70px 80px;
-      opacity: 0;
-      animation: contentShow 1s ease forwards;
-      animation-delay: 3.6s;
+      padding: 30px 18px;
+      text-align: center;
+      animation-delay: 3.1s;
     }
 
     .ds-small-title {
-      position: absolute;
-      top: 70px;
-      left: 80px;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1.4;
-    }
-
-    .ds-small-title span {
-      display: block;
+      display: none;
     }
 
     .ds-main-title {
-      position: absolute;
-      left: 80px;
-      top: 28%;
-      font-size: clamp(50px, 6vw, 100px);
+      left: 50%;
+      top: auto;
+      bottom: 145px;
+      transform: translateX(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .ds-big-we {
+      font-size: 46px;
+      letter-spacing: -2px;
+      line-height: 0.8;
+    }
+
+    .ds-title-lines {
+      font-size: 22px;
       line-height: 0.95;
-      font-weight: 800;
-      letter-spacing: -3px;
-      margin: 0;
+      letter-spacing: -0.8px;
+      text-align: left;
     }
 
     .ds-content {
-      position: absolute;
-      right: 80px;
-      bottom: 80px;
-      max-width: 520px;
+      left: 18px;
+      right: 18px;
+      bottom: 24px;
+      max-width: none;
     }
 
     .ds-content p {
-      font-size: 28px;
-      line-height: 1.25;
-      font-weight: 500;
-      margin: 0 0 28px;
+      font-size: 9px;
+      line-height: 1.45;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
 
     .ds-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
     }
 
     .ds-buttons a {
-      text-decoration: none;
-      background: #f97316;
-      color: #fff;
-      padding: 14px 25px;
-      border-radius: 50px;
-      font-size: 15px;
-      font-weight: 600;
-      box-shadow: 0 12px 35px rgba(249,115,22,0.45);
+      padding: 9px 13px;
+      font-size: 11px;
     }
 
-    .ds-buttons a:last-child {
-      background: transparent;
-      border: 1px solid #f97316;
-      color: #fff;
-    }
-
-    @keyframes textPop {
-      0% { opacity: 0; transform: scale(0.92); }
-      35% { opacity: 1; transform: scale(1); }
-      80% { opacity: 1; }
-      100% { opacity: 0; transform: scale(1.08); }
-    }
-
-    @keyframes introFade {
-      0%, 80% { opacity: 1; visibility: visible; }
+    @keyframes introFadeMobile {
+      0%, 75% { opacity: 1; visibility: visible; }
       100% { opacity: 0; visibility: hidden; }
     }
 
-    @keyframes imageKeyFrame {
-      0% { opacity: 0; transform: translateY(100%); }
-      20% { opacity: 1; }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes imageZoomOut {
-      from { transform: scale(1.12); }
-      to { transform: scale(1); }
-    }
-
-    @keyframes contentShow {
-      from { opacity: 0; transform: translateY(35px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 768px) {
-      .ds-hero-section {
-        height: 100vh;
-      }
-
-      .ds-intro {
-        background: transparent;
-        animation: introFadeMobile 2s ease forwards;
-        animation-delay: 1.2s;
-      }
-
-      .ds-intro h1 {
-        font-size: 48px;
-        text-align: center;
-        letter-spacing: -2px;
-      }
-
-      .ds-bg-image {
-        z-index: 1;
-      }
-
-      .ds-bg-image img {
-        filter: grayscale(100%) brightness(50%);
-      }
-
-      .ds-main-image {
-        width: 72%;
-        height: 74%;
-        left: 50%;
-        top: auto;
-        bottom: -6%;
-        right: auto;
+    @keyframes imageKeyFrameMobile {
+      0% {
+        opacity: 0;
         transform: translate(-50%, 120%);
-        animation: imageKeyFrameMobile 0.9s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-        animation-delay: 2.2s;
       }
-
-      .ds-main-image img {
-        object-fit: cover;
-        object-position: center;
-        filter: grayscale(100%) brightness(65%);
-        border-radius: 0;
-        animation: none;
-        transform: scale(1);
+      20% {
+        opacity: 1;
       }
-
-      .ds-main-image::after {
-        background: radial-gradient(circle at center, rgba(249,115,22,0.25), transparent 58%);
-      }
-
-      .ds-overlay {
-        padding: 30px 22px;
-        text-align: center;
-        animation-delay: 3.1s;
-      }
-
-      .ds-small-title {
-        display: none;
-      }
-
-      .ds-main-title {
-        left: 50%;
-        top: auto;
-        bottom: 135px;
-        transform: translateX(-50%);
-        width: 100%;
-        font-size: 34px;
-        line-height: 1.05;
-        letter-spacing: -1px;
-      }
-
-      .ds-content {
-        left: 22px;
-        right: 22px;
-        bottom: 24px;
-        max-width: none;
-      }
-
-      .ds-content p {
-        font-size: 11px;
-        line-height: 1.5;
-        letter-spacing: 1.2px;
-        text-transform: uppercase;
-        margin-bottom: 12px;
-      }
-
-      .ds-buttons {
-        justify-content: center;
-        gap: 8px;
-      }
-
-      .ds-buttons a {
-        padding: 9px 13px;
-        font-size: 11px;
-      }
-
-      @keyframes introFadeMobile {
-        0%, 75% { opacity: 1; visibility: visible; }
-        100% { opacity: 0; visibility: hidden; }
-      }
-
-      @keyframes imageKeyFrameMobile {
-        0% {
-          opacity: 0;
-          transform: translate(-50%, 120%);
-        }
-        20% {
-          opacity: 1;
-        }
-        100% {
-          opacity: 1;
-          transform: translate(-50%, 0);
-        }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, 0);
       }
     }
-  </style>
+  }
+</style>
 
   <div class="ds-bg-image">
     <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="Design Star Background">
@@ -595,16 +779,30 @@
       <span>Business Solutions.</span>
     </div>
 
-    <h2 class="ds-main-title">
-      We Build.<br>
-      We Scale.<br>
-      We Secure.
-    </h2>
+ <h2 class="ds-main-title">
+  <span class="ds-big-we">We</span>
+  <span class="ds-title-lines">
+    <span>Build<span class="ds-dot">.</span></span>
+    <span>Scale<span class="ds-dot">.</span></span>
+    <span>Secure<span class="ds-dot">.</span></span>
+  </span>
+</h2>
+
 
     <div class="ds-content">
       <p>
-        Hasta Ventures Private Limited is a 360° business solutions company helping brands grow through strategy, creativity, technology, and execution.
-      </p>
+  Hasta Ventures Private Limited is a
+  <strong>360° business solutions</strong>
+  company <strong>helping brands grow</strong> through
+  <strong>strategy, creativity, technology, and execution.</strong>
+</p>
+<style>
+  .ds-content strong
+   {
+    color: orange;
+    font-weight: 800;
+}
+</style>
 
       <div class="ds-buttons">
         <a href="#contact">Start a Project</a>
@@ -940,7 +1138,7 @@
 
 
 
-<section class="ds-about-section">
+<section class="ds-about-section" id="about">
   <style>
     .ds-about-section {
       position: relative;
@@ -952,13 +1150,21 @@
       background: #f97316;
     }
 
-    .ds-about-bg {
+    .ds-about-carousel {
       position: absolute;
       inset: 0;
-      width: 100%;
+      display: flex;
+      width: 600%;
+      height: 100%;
+      animation: dsAboutScroll 22s linear infinite;
+      z-index: 1;
+    }
+
+    .ds-about-carousel img {
+      width: 16.666%;
       height: 100%;
       object-fit: cover;
-      z-index: 1;
+      filter: grayscale(100%) brightness(65%);
     }
 
     .ds-about-section::after {
@@ -968,7 +1174,7 @@
       z-index: 2;
       background:
         linear-gradient(to bottom, rgba(249,115,22,0.30), rgba(249,115,22,0.55)),
-        linear-gradient(to top, rgba(249,115,22,0.75), transparent 55%);
+        linear-gradient(to top, rgba(249,115,22,0.82), transparent 58%);
     }
 
     .ds-about-content {
@@ -980,49 +1186,59 @@
 
     .ds-about-label {
       position: absolute;
-      top: 88px;
-      left: 17%;
-      font-size: 42px;
+      top: 70px;
+      left: 40px;
+      font-size: 64px;
       font-weight: 800;
       line-height: 0.82;
-      letter-spacing: -2px;
+      letter-spacing: -3px;
       text-transform: lowercase;
-    }
-
-    .ds-about-arrow {
-      position: absolute;
-      left: 40px;
-      bottom: 300px;
-      font-size: 34px;
-      font-weight: 300;
-      color: #fff;
-      letter-spacing: 8px;
+      text-align: left;
+      color: #ffffff;
     }
 
     .ds-about-title {
       position: absolute;
       left: 40px;
-      bottom: 118px;
+      bottom: 178px;
       margin: 0;
-      font-size: clamp(58px, 5.8vw, 112px);
+      font-size: clamp(52px, 5.5vw, 105px);
       line-height: 0.88;
       font-weight: 800;
       letter-spacing: -4px;
       text-transform: uppercase;
-      max-width: 950px;
+      max-width: 1000px;
+    }
+
+    .ds-about-title span {
+      color: #fff;
     }
 
     .ds-about-desc {
       position: absolute;
       left: 40px;
       right: 40px;
-      bottom: 18px;
+      bottom: 32px;
       margin: 0;
-      font-size: 15px;
-      line-height: 1.55;
+      font-size: 16px;
+      line-height: 1.6;
       font-weight: 500;
-      max-width: none;
-      color: rgba(255,255,255,0.95);
+      max-width: 1100px;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .ds-about-desc strong {
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    @keyframes dsAboutScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     @media (max-width: 768px) {
@@ -1030,14 +1246,21 @@
         height: 100vh;
       }
 
-      .ds-about-bg {
+      .ds-about-carousel {
+        width: 600%;
+        animation-duration: 14s;
+      }
+
+      .ds-about-carousel img {
+        width: 16.666%;
         object-position: center;
+        filter: grayscale(100%) brightness(60%);
       }
 
       .ds-about-section::after {
         background:
-          linear-gradient(to bottom, rgba(249,115,22,0.25), rgba(249,115,22,0.50)),
-          linear-gradient(to top, rgba(249,115,22,0.85), transparent 62%);
+          linear-gradient(to bottom, rgba(249,115,22,0.25), rgba(249,115,22,0.55)),
+          linear-gradient(to top, rgba(249,115,22,0.90), transparent 65%);
       }
 
       .ds-about-content {
@@ -1045,94 +1268,58 @@
       }
 
       .ds-about-label {
-        top: 55px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 34px;
-        text-align: left;
-      }
-
-      .ds-about-arrow {
-        left: 22px;
-        bottom: 270px;
-        font-size: 20px;
-        letter-spacing: 4px;
+        top: 28px;
+        left: 20px;
+        font-size: 42px;
+        line-height: 0.82;
+        letter-spacing: -2px;
       }
 
       .ds-about-title {
-        left: 22px;
-        right: 22px;
-        bottom: 138px;
-        font-size: 44px;
-        line-height: 0.92;
+        left: 20px;
+        right: 20px;
+        bottom: 210px;
+        font-size: 36px;
+        line-height: 0.95;
         letter-spacing: -2px;
       }
 
       .ds-about-desc {
-        left: 22px;
-        right: 22px;
-        bottom: 20px;
-        font-size: 11px;
-        line-height: 1.45;
+        left: 20px;
+        right: 20px;
+        bottom: 24px;
+        font-size: 12px;
+        line-height: 1.55;
       }
     }
-    .ds-about-label {
-    position: absolute;
-    top: 70px;
-    left: 40px;
-
-    font-size: 64px;
-    font-weight: 800;
-    line-height: 0.82;
-    letter-spacing: -3px;
-    text-transform: lowercase;
-    text-align: left;
-
-    color: #ffffff;
-}
-@media (max-width: 768px) {
-
-  .ds-about-label {
-      top: 28px;
-      left: 20px;
-      transform: none;
-
-      font-size: 42px;
-      line-height: 0.82;
-      letter-spacing: -2px;
-      text-align: left;
-  }
-
-}
   </style>
 
-  <img
-    class="ds-about-bg"
-    src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg"
-    alt="Design Star About">
-    <!-- <video class="ds-about-bg" autoplay muted loop playsinline>
-  <source src="your-video.mp4" type="video/mp4">
-</video> -->
+  <div class="ds-about-carousel">
+    <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+    <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+    <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+    <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+    <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+    <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+  </div>
 
   <div class="ds-about-content">
     <div class="ds-about-label">about<br>us.</div>
 
-   
-
     <h2 class="ds-about-title">
-      DESIGN STAR<br>
-      BUSINESS WORLD.
+      NOT JUST AN AGENCY.<br>
+      A GROWTH PARTNER.
     </h2>
 
     <p class="ds-about-desc">
-      Design Star is a modern business solutions company helping brands accelerate growth through technology, creativity, digital marketing, web development, branding, and strategic execution. We partner with startups, entrepreneurs, and established businesses to build scalable digital experiences that generate real results.
+      At Hasta Ventures, we bring together <strong>branding, marketing, design, technology, and execution</strong> — all under one roof. We work with businesses at every stage, helping them <strong>build strong foundations, scale efficiently, and create long-term impact.</strong>
     </p>
   </div>
 </section>
 
 
 
-<section class="hv-show-section">
+<!-- <section class="hv-show-section">
   <style>
     .hv-show-section {
       position: relative;
@@ -1262,13 +1449,13 @@
     }
   </style>
 
-  <!-- Top Logo -->
+
   <img
     class="hv-logo"
     src="image.png"
     alt="Hasta Ventures Logo">
 
-  <!-- Background Image Carousel -->
+ 
   <div class="hv-carousel">
     <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
     <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
@@ -1281,14 +1468,14 @@
   <div class="hv-content">
     <h2 class="hv-title">
       <span>HASTA VENTURES</span>
-      <!-- <span class="orange">PRIVATE LIMITED</span> -->
+     
     </h2>
 
     <p class="hv-tagline">
       Building Brands • Scaling Businesses • Driving Innovation
     </p>
   </div>
-</section>
+</section> -->
 
 
 <section class="ds-slider-section">
@@ -1317,19 +1504,11 @@
   z-index: 2;
 }
 
-   .ds-slide img {
+  .ds-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-  transform: scale(1.15);
-
-  transition: transform 8s ease;
-
-  filter:
-    brightness(.85)
-    contrast(1.08)
-    saturate(1.05);
+  object-position: center center;
 }
 .ds-slide.active img {
   transform: scale(1);
@@ -1476,40 +1655,109 @@
         height: 38px;
       }
     }
+    .ds-slide-content h2 span {
+  display: block;
+  margin-top: 18px;
+  font-size: clamp(16px, 1.8vw, 26px);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.92);
+  text-transform: none;
+}
+
+@media (max-width: 768px) {
+  .ds-slide-content h2 span {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+  }
+}
   </style>
 
   <div class="ds-slide active">
-    <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
-    <div class="ds-slide-content">
-      <h2>360° Business Solutions<br>& Counting.</h2>
-    </div>
+  <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+  <div class="ds-slide-content">
+    <h2>Services Overview<br><span>Everything Your Business Needs. One Partner.</span></h2>
   </div>
+</div>
 
-  <div class="ds-slide">
-    <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
-    <div class="ds-slide-content">
-      <h2>We Build Brands<br>That Scale.</h2>
-    </div>
+<div class="ds-slide">
+  <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+  <div class="ds-slide-content">
+    <h2>Branding<br><span>Build a strong and memorable identity</span></h2>
   </div>
+</div>
 
-  <div class="ds-slide">
-    <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
-    <div class="ds-slide-content">
-      <h2>Strategy. Creativity.<br>Technology.</h2>
-    </div>
+<div class="ds-slide">
+  <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+  <div class="ds-slide-content">
+    <h2>Marketing<br><span>Drive growth through performance strategies</span></h2>
   </div>
+</div>
 
-  <div class="ds-thumbs">
-    <button class="ds-thumb active" onclick="showDsSlide(0)">
-      <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
-    </button>
-    <button class="ds-thumb" onclick="showDsSlide(1)">
-      <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
-    </button>
-    <button class="ds-thumb" onclick="showDsSlide(2)">
-      <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
-    </button>
+<div class="ds-slide">
+  <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+  <div class="ds-slide-content">
+    <h2>Design<br><span>Pitch decks, presentations, and proposals that convert</span></h2>
   </div>
+</div>
+
+<div class="ds-slide">
+  <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+  <div class="ds-slide-content">
+    <h2>Events<br><span>Corporate events, launches, and conferences</span></h2>
+  </div>
+</div>
+
+<div class="ds-slide">
+  <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+  <div class="ds-slide-content">
+    <h2>Hampers<br><span>Premium corporate and product gifting solutions</span></h2>
+  </div>
+</div>
+
+<div class="ds-slide">
+  <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+  <div class="ds-slide-content">
+    <h2>Signages<br><span>Physical branding that stands out</span></h2>
+  </div>
+</div>
+
+<div class="ds-slide">
+  <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+  <div class="ds-slide-content">
+    <h2>Media<br><span>Professional photography and videography</span></h2>
+  </div>
+</div>
+
+<div class="ds-slide">
+  <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+  <div class="ds-slide-content">
+    <h2>IT Services<br><span>Web, apps, and scalable systems</span></h2>
+  </div>
+</div>
+
+<div class="ds-slide">
+  <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+  <div class="ds-slide-content">
+    <h2>Cybersecurity<br><span>Secure your business and data</span></h2>
+  </div>
+</div>
+
+<div class="ds-thumbs">
+  <button class="ds-thumb active" onclick="showDsSlide(0)"><img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(1)"><img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(2)"><img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(3)"><img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(4)"><img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(5)"><img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(6)"><img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(7)"><img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(8)"><img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(9)"><img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt=""></button>
+</div>
 
   <div class="ds-slider-arrows">
     <button class="ds-arrow" onclick="prevDsSlide()">‹</button>
@@ -1546,7 +1794,7 @@
 </section>
 
 
-<section class="media-rec-section">
+<section class="media-rec-section" id="why">
   <style>
     .media-rec-section {
       width: 100%;
@@ -1778,11 +2026,26 @@
   </style>
 
   <div class="media-rec-wrap">
-    <div class="media-rec-content">
-      <h2>Media &<br>Recognitions.</h2>
-      <p>Trust the process, let outcomes make the noise. A throwback into our journey so far.</p>
-      <a href="#explore" class="media-rec-btn">Explore</a>
-    </div>
+   <div class="media-rec-content">
+  <h2>Why Choose Us.</h2>
+
+  <p>
+    <strong>Why Businesses Choose Hasta Ventures</strong><br><br>
+    We offer complete <strong>360° execution</strong> — eliminating the need for multiple vendors.
+    Our approach combines <strong>strategy with execution</strong>, ensuring every output drives real business results.
+    We deliver <strong>premium creative quality</strong> with strong business thinking behind every decision.
+    With a strong presence in South India and capabilities across Pan India, we ensure seamless delivery.
+    We move fast, execute efficiently, and build systems that scale.
+  </p>
+  <style>
+    .media-rec-content p strong {
+  color: #f97316;
+  font-weight: 800;
+}
+  </style>
+
+  <a href="contact.html" class="media-rec-btn">Work With Us</a>
+</div>
 
     <div class="media-rec-gallery">
       <div class="media-rec-card">
@@ -1800,6 +2063,402 @@
   </div>
 </section>
 
+<section class="hv-process-section" id="process">
+  <style>
+    .hv-process-section{
+      position:relative;
+      width:100%;
+      min-height:100vh;
+      background:#111;
+      color:#fff;
+      overflow:hidden;
+      font-family:'Poppins',sans-serif;
+      padding:120px 7%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .hv-process-label{
+      color:#f97316;
+      font-size:18px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:4px;
+      margin-bottom:20px;
+    }
+
+    .hv-process-title{
+      font-size:clamp(60px,7vw,140px);
+      line-height:.9;
+      font-weight:900;
+      letter-spacing:-5px;
+      margin:0 0 80px;
+    }
+
+    .hv-process-title span{
+      color:#f97316;
+    }
+
+    .hv-process-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:40px;
+    }
+
+    .hv-step{
+      position:relative;
+      padding-top:80px;
+    }
+
+    .hv-step-number{
+      position:absolute;
+      top:0;
+      left:0;
+      font-size:120px;
+      font-weight:900;
+      line-height:1;
+      color:rgba(249,115,22,.15);
+      letter-spacing:-6px;
+    }
+
+    .hv-step h3{
+      margin:0 0 15px;
+      font-size:32px;
+      font-weight:800;
+      color:#f97316;
+    }
+
+    .hv-step p{
+      margin:0;
+      font-size:17px;
+      line-height:1.6;
+      color:rgba(255,255,255,.85);
+    }
+
+    .hv-line{
+      position:absolute;
+      top:54%;
+      left:10%;
+      width:80%;
+      height:2px;
+      background:rgba(249,115,22,.25);
+      z-index:0;
+    }
+
+    @media(max-width:768px){
+
+      .hv-process-section{
+        padding:80px 20px;
+      }
+
+      .hv-process-title{
+        font-size:48px;
+        margin-bottom:50px;
+      }
+
+      .hv-process-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+      }
+
+      .hv-line{
+        display:none;
+      }
+
+      .hv-step{
+        padding-top:55px;
+        border-left:2px solid rgba(249,115,22,.3);
+        padding-left:20px;
+      }
+
+      .hv-step-number{
+        font-size:60px;
+      }
+
+      .hv-step h3{
+        font-size:24px;
+      }
+
+      .hv-step p{
+        font-size:14px;
+      }
+    }
+  </style>
+
+  <div class="hv-process-label">Process</div>
+
+  <h2 class="hv-process-title">
+    HOW WE<br>
+    <span>WORK.</span>
+  </h2>
+
+  <div class="hv-line"></div>
+
+  <div class="hv-process-grid">
+
+    <div class="hv-step">
+      <div class="hv-step-number">01</div>
+      <h3>Understand</h3>
+      <p>
+        We dive deep into your business,
+        goals, and challenges.
+      </p>
+    </div>
+
+    <div class="hv-step">
+      <div class="hv-step-number">02</div>
+      <h3>Strategize</h3>
+      <p>
+        We create a clear,
+        actionable roadmap.
+      </p>
+    </div>
+
+    <div class="hv-step">
+      <div class="hv-step-number">03</div>
+      <h3>Execute</h3>
+      <p>
+        We deliver with precision across
+        design, marketing, and technology.
+      </p>
+    </div>
+
+    <div class="hv-step">
+      <div class="hv-step-number">04</div>
+      <h3>Scale</h3>
+      <p>
+        We optimize, automate,
+        and grow your business.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="hv-cta-section">
+  <style>
+    .hv-cta-section{
+      position:relative;
+      min-height:100vh;
+      overflow:hidden;
+      background:#0f0f0f;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:110px 6%;
+      font-family:'Poppins',sans-serif;
+    }
+
+    .hv-cta-bg-text{
+      position:absolute;
+      inset:auto 0 8%;
+      font-size:clamp(110px,18vw,310px);
+      font-weight:900;
+      line-height:.8;
+      letter-spacing:-12px;
+      color:rgba(255,255,255,.035);
+      text-transform:uppercase;
+      white-space:nowrap;
+      animation:ctaTextMove 18s linear infinite;
+      pointer-events:none;
+    }
+
+    .hv-cta-section::before{
+      content:"";
+      position:absolute;
+      width:720px;
+      height:720px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(249,115,22,.35),rgba(249,115,22,.08) 50%,transparent 72%);
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+    }
+
+    .hv-cta-section::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(120deg,rgba(249,115,22,.16),transparent 32%),
+        linear-gradient(to top,rgba(0,0,0,.45),transparent 55%);
+      pointer-events:none;
+    }
+
+    .hv-cta-card{
+      position:relative;
+      z-index:2;
+      max-width:1180px;
+      width:100%;
+      padding:70px 50px;
+      border:1px solid rgba(255,255,255,.16);
+      border-radius:34px;
+      background:rgba(255,255,255,.06);
+      backdrop-filter:blur(16px);
+      box-shadow:0 30px 100px rgba(0,0,0,.35);
+    }
+
+    .hv-cta-label{
+      display:inline-block;
+      color:#f97316;
+      font-size:14px;
+      font-weight:800;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      margin-bottom:26px;
+    }
+
+    .hv-cta-title{
+      margin:0;
+      color:#fff;
+      font-size:clamp(64px,7.8vw,150px);
+      line-height:.86;
+      font-weight:900;
+      letter-spacing:-6px;
+      text-transform:uppercase;
+    }
+
+    .hv-cta-title span{
+      color:#f97316;
+    }
+
+    .hv-cta-desc{
+      max-width:760px;
+      margin:34px auto 0;
+      font-size:22px;
+      line-height:1.55;
+      color:rgba(255,255,255,.82);
+      font-weight:500;
+    }
+
+    .hv-cta-buttons{
+      margin-top:48px;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .hv-btn-primary,
+    .hv-btn-secondary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:210px;
+      padding:17px 34px;
+      border-radius:60px;
+      text-decoration:none;
+      font-size:16px;
+      font-weight:800;
+      transition:.35s ease;
+    }
+
+    .hv-btn-primary{
+      background:#f97316;
+      color:#fff;
+      box-shadow:0 18px 45px rgba(249,115,22,.35);
+    }
+
+    .hv-btn-secondary{
+      color:#fff;
+      border:1px solid rgba(255,255,255,.65);
+      background:rgba(255,255,255,.04);
+    }
+
+    .hv-btn-primary:hover,
+    .hv-btn-secondary:hover{
+      transform:translateY(-4px);
+    }
+
+    .hv-btn-secondary:hover{
+      background:#fff;
+      color:#111;
+    }
+
+    @keyframes ctaTextMove{
+      from{transform:translateX(0);}
+      to{transform:translateX(-50%);}
+    }
+
+    @media(max-width:768px){
+      .hv-cta-section{
+        min-height:100vh;
+        padding:70px 16px;
+      }
+
+      .hv-cta-bg-text{
+        bottom:6%;
+        font-size:95px;
+        letter-spacing:-5px;
+      }
+
+      .hv-cta-section::before{
+        width:420px;
+        height:420px;
+      }
+
+      .hv-cta-card{
+        padding:46px 20px;
+        border-radius:24px;
+      }
+
+      .hv-cta-label{
+        font-size:11px;
+        letter-spacing:3px;
+        margin-bottom:20px;
+      }
+
+      .hv-cta-title{
+        font-size:46px;
+        line-height:.92;
+        letter-spacing:-2px;
+      }
+
+      .hv-cta-desc{
+        margin-top:24px;
+        font-size:15px;
+        line-height:1.6;
+      }
+
+      .hv-cta-buttons{
+        margin-top:32px;
+        gap:12px;
+      }
+
+      .hv-btn-primary,
+      .hv-btn-secondary{
+        width:100%;
+        min-width:auto;
+        padding:14px 24px;
+        font-size:14px;
+      }
+    }
+    
+  </style>
+
+  <div class="hv-cta-bg-text">BUILD SCALE SECURE BUILD SCALE SECURE</div>
+
+  <div class="hv-cta-card">
+    <div class="hv-cta-label">CTA</div>
+
+    <h2 class="hv-cta-title">
+      LET'S BUILD<br>
+      SOMETHING THAT<br>
+      <span>ACTUALLY WORKS.</span>
+    </h2>
+
+    <p class="hv-cta-desc">
+      From idea to execution — we handle everything.
+    </p>
+
+    <div class="hv-cta-buttons">
+      <a href="contact.html" class="hv-btn-primary">Get a Proposal</a>
+      <a href="#consultation" class="hv-btn-secondary">Book a Consultation</a>
+    </div>
+  </div>
+</section>
 
 
 <section class="channel-section">
