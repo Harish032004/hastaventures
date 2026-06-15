@@ -458,7 +458,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     filter: grayscale(100%) brightness(55%);
+  }
+
+  .ds-bg-image img {
+    object-fit: contain;
   }
 
   .ds-bg-image::after,
@@ -498,7 +503,9 @@
   }
 
   .ds-main-image img {
-    transform: scale(1.12);
+    object-fit: contain;
+    object-position: center center;
+    transform: scale(1);
     animation: imageZoomOut 3s ease forwards;
     animation-delay: 2.1s;
   }
@@ -532,28 +539,30 @@
     left: 80px;
     top: 28%;
     display: flex;
-    align-items: center;
-    gap: 22px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
     margin: 0;
     color: #fff;
     z-index: 3;
   }
 
-  .ds-big-we {
-    color: #f97316;
-    font-size: clamp(120px, 13vw, 230px);
-    line-height: 0.78;
+  .ds-title-line {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    font-size: clamp(58px, 7vw, 120px);
+    line-height: 0.9;
     font-weight: 900;
-    letter-spacing: -10px;
+    letter-spacing: -4px;
   }
 
-  .ds-title-lines {
-    display: flex;
-    flex-direction: column;
-    font-size: clamp(50px, 6vw, 100px);
-    line-height: 0.95;
-    font-weight: 800;
-    letter-spacing: -3px;
+  .ds-line-we {
+    color: #fff;
+  }
+
+  .ds-action-word {
+    color: #f97316;
   }
 
   .ds-dot {
@@ -621,7 +630,7 @@
   }
 
   @keyframes imageZoomOut {
-    from { transform: scale(1.12); }
+    from { transform: scale(1); }
     to { transform: scale(1); }
   }
 
@@ -668,7 +677,7 @@
     }
 
     .ds-main-image img {
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
       filter: grayscale(100%) brightness(65%);
       border-radius: 0;
@@ -697,22 +706,18 @@
       transform: translateX(-50%);
       width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-items: center;
-      gap: 7px;
+      align-items: flex-start;
+      gap: 3px;
+      max-width: 260px;
     }
 
-    .ds-big-we {
-      font-size: 46px;
-      letter-spacing: -2px;
-      line-height: 0.8;
-    }
-
-    .ds-title-lines {
-      font-size: 22px;
+    .ds-title-line {
+      gap: 8px;
+      font-size: 32px;
       line-height: 0.95;
-      letter-spacing: -0.8px;
-      text-align: left;
+      letter-spacing: -1.2px;
     }
 
     .ds-content {
@@ -762,7 +767,7 @@
 </style>
 
   <div class="ds-bg-image">
-    <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="Design Star Background">
+    <img src="bg2.png" alt="Design Star Background">
   </div>
 
   <div class="ds-intro">
@@ -770,7 +775,7 @@
   </div>
 
   <div class="ds-main-image">
-    <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="Hasta Ventures Main">
+    <img src="image-removebg-preview (4).png" alt="Hasta Ventures Main">
   </div>
 
   <div class="ds-overlay">
@@ -780,11 +785,17 @@
     </div>
 
  <h2 class="ds-main-title">
-  <span class="ds-big-we">We</span>
-  <span class="ds-title-lines">
-    <span>Build<span class="ds-dot">.</span></span>
-    <span>Scale<span class="ds-dot">.</span></span>
-    <span>Secure<span class="ds-dot">.</span></span>
+  <span class="ds-title-line">
+    <span class="ds-line-we">We</span>
+    <span class="ds-action-word">Build<span class="ds-dot">.</span></span>
+  </span>
+  <span class="ds-title-line">
+    <span class="ds-line-we">We</span>
+    <span class="ds-action-word">Scale<span class="ds-dot">.</span></span>
+  </span>
+  <span class="ds-title-line">
+    <span class="ds-line-we">We</span>
+    <span class="ds-action-word">Secure<span class="ds-dot">.</span></span>
   </span>
 </h2>
 
@@ -1161,9 +1172,13 @@
     }
 
     .ds-about-carousel img {
-      width: 16.666%;
+      flex: 0 0 16.6667%;
+      width: 16.6667%;
+      min-width: 16.6667%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;
+      object-position: center center;
+      display: block;
       filter: grayscale(100%) brightness(65%);
     }
 
@@ -1220,7 +1235,7 @@
       right: 40px;
       bottom: 32px;
       margin: 0;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.6;
       font-weight: 500;
       max-width: 1100px;
@@ -1288,17 +1303,17 @@
         left: 20px;
         right: 20px;
         bottom: 24px;
-        font-size: 12px;
+        font-size: 13px;
         line-height: 1.55;
       }
     }
   </style>
 
   <div class="ds-about-carousel">
-    <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
-    <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
-    <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
-    <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+    <img src="https://i.pinimg.com/736x/c9/86/71/c98671f726e4d9f1efa7efceac13d586.jpg" alt="">
+    <img src="https://i.pinimg.com/1200x/69/fa/43/69fa434336a8cd5585573c087e001aa0.jpg" alt="">
+    <img src="https://i.pinimg.com/736x/01/c4/16/01c4161cfe1c5c72c001b03056961a41.jpg" alt="">
+    <img src="https://i.pinimg.com/1200x/50/54/e5/5054e53d1359047aff70c8d5bd9b0fac.jpg" alt="">
     <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
     <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
   </div>
@@ -1507,7 +1522,7 @@
   .ds-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   object-position: center center;
 }
 .ds-slide.active img {
@@ -1684,35 +1699,35 @@
 </div>
 
 <div class="ds-slide">
-  <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+  <img src="https://i.pinimg.com/736x/4b/7e/1f/4b7e1f5ef71701edfc4b72f4cde6578d.jpg" alt="">
   <div class="ds-slide-content">
     <h2>Branding<br><span>Build a strong and memorable identity</span></h2>
   </div>
 </div>
 
 <div class="ds-slide">
-  <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+  <img src="https://i.pinimg.com/1200x/55/1b/15/551b157d85bbc5bf1b0f15b48453c446.jpg" alt="">
   <div class="ds-slide-content">
     <h2>Marketing<br><span>Drive growth through performance strategies</span></h2>
   </div>
 </div>
 
 <div class="ds-slide">
-  <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+  <img src="https://i.pinimg.com/736x/1b/63/e4/1b63e483a1f3d8761542241af42cd47a.jpg" alt="">
   <div class="ds-slide-content">
     <h2>Design<br><span>Pitch decks, presentations, and proposals that convert</span></h2>
   </div>
 </div>
 
 <div class="ds-slide">
-  <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+  <img src="https://i.pinimg.com/736x/80/22/50/8022506379cd94c43b22225c71344f76.jpg" alt="">
   <div class="ds-slide-content">
     <h2>Events<br><span>Corporate events, launches, and conferences</span></h2>
   </div>
 </div>
 
 <div class="ds-slide">
-  <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+  <img src="https://i.pinimg.com/736x/be/09/65/be0965120aa9a85d9522fad0dc93a6f6.jpg" alt="">
   <div class="ds-slide-content">
     <h2>Hampers<br><span>Premium corporate and product gifting solutions</span></h2>
   </div>
@@ -1726,21 +1741,21 @@
 </div>
 
 <div class="ds-slide">
-  <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+  <img src="https://i.pinimg.com/736x/e1/9d/82/e19d82cfe3fc3a17990291e0cddecb00.jpg" alt="">
   <div class="ds-slide-content">
     <h2>Media<br><span>Professional photography and videography</span></h2>
   </div>
 </div>
 
 <div class="ds-slide">
-  <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+  <img src="https://i.pinimg.com/736x/60/e4/c5/60e4c5183a920e69a3463a6163adc6d5.jpg" alt="">
   <div class="ds-slide-content">
     <h2>IT Services<br><span>Web, apps, and scalable systems</span></h2>
   </div>
 </div>
 
 <div class="ds-slide">
-  <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+  <img src="https://i.pinimg.com/1200x/e6/ec/86/e6ec86d140147e8dc72514dbd2af546f.jpg" alt="">
   <div class="ds-slide-content">
     <h2>Cybersecurity<br><span>Secure your business and data</span></h2>
   </div>
@@ -1748,15 +1763,15 @@
 
 <div class="ds-thumbs">
   <button class="ds-thumb active" onclick="showDsSlide(0)"><img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt=""></button>
-  <button class="ds-thumb" onclick="showDsSlide(1)"><img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt=""></button>
-  <button class="ds-thumb" onclick="showDsSlide(2)"><img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt=""></button>
-  <button class="ds-thumb" onclick="showDsSlide(3)"><img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt=""></button>
-  <button class="ds-thumb" onclick="showDsSlide(4)"><img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt=""></button>
-  <button class="ds-thumb" onclick="showDsSlide(5)"><img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(1)"><img src="https://i.pinimg.com/736x/4b/7e/1f/4b7e1f5ef71701edfc4b72f4cde6578d.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(2)"><img src="https://i.pinimg.com/1200x/55/1b/15/551b157d85bbc5bf1b0f15b48453c446.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(3)"><img src="https://i.pinimg.com/736x/1b/63/e4/1b63e483a1f3d8761542241af42cd47a.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(4)"><img src="https://i.pinimg.com/736x/80/22/50/8022506379cd94c43b22225c71344f76.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(5)"><img src="https://i.pinimg.com/736x/be/09/65/be0965120aa9a85d9522fad0dc93a6f6.jpg" alt=""></button>
   <button class="ds-thumb" onclick="showDsSlide(6)"><img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt=""></button>
-  <button class="ds-thumb" onclick="showDsSlide(7)"><img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt=""></button>
-  <button class="ds-thumb" onclick="showDsSlide(8)"><img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt=""></button>
-  <button class="ds-thumb" onclick="showDsSlide(9)"><img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(7)"><img src="https://i.pinimg.com/736x/e1/9d/82/e19d82cfe3fc3a17990291e0cddecb00.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(8)"><img src="https://i.pinimg.com/736x/60/e4/c5/60e4c5183a920e69a3463a6163adc6d5.jpg" alt=""></button>
+  <button class="ds-thumb" onclick="showDsSlide(9)"><img src="https://i.pinimg.com/1200x/e6/ec/86/e6ec86d140147e8dc72514dbd2af546f.jpg" alt=""></button>
 </div>
 
   <div class="ds-slider-arrows">
@@ -2049,15 +2064,15 @@
 
     <div class="media-rec-gallery">
       <div class="media-rec-card">
-        <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+        <img src="https://i.pinimg.com/1200x/d2/40/90/d24090ade80e660bd23fe9c2d91dfb73.jpg" alt="">
       </div>
 
       <div class="media-rec-card">
-        <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+        <img src="https://i.pinimg.com/736x/38/38/55/38385551649881d78221877664b4698f.jpg" alt="">
       </div>
 
       <div class="media-rec-card">
-        <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+        <img src="https://i.pinimg.com/736x/8d/d0/47/8dd047b95c46c21fd6b191f8cb89c17a.jpg" alt="">
       </div>
     </div>
   </div>
@@ -2069,8 +2084,10 @@
       position:relative;
       width:100%;
       min-height:100vh;
-      background:#111;
-      color:#fff;
+      background:
+        radial-gradient(circle at top right, rgba(249,115,22,.24), transparent 32%),
+        linear-gradient(135deg, #ffffff 0%, #fff4ec 48%, #f97316 140%);
+      color:#111;
       overflow:hidden;
       font-family:'Poppins',sans-serif;
       padding:120px 7%;
@@ -2094,6 +2111,7 @@
       font-weight:900;
       letter-spacing:-5px;
       margin:0 0 80px;
+      color:#111;
     }
 
     .hv-process-title span{
@@ -2109,6 +2127,10 @@
     .hv-step{
       position:relative;
       padding-top:80px;
+      padding-right:18px;
+      border-radius:8px;
+      transition:transform .35s ease, background .35s ease, box-shadow .35s ease;
+      cursor:pointer;
     }
 
     .hv-step-number{
@@ -2118,8 +2140,9 @@
       font-size:120px;
       font-weight:900;
       line-height:1;
-      color:rgba(249,115,22,.15);
+      color:rgba(249,115,22,.22);
       letter-spacing:-6px;
+      transition:color .35s ease, transform .35s ease;
     }
 
     .hv-step h3{
@@ -2127,13 +2150,39 @@
       font-size:32px;
       font-weight:800;
       color:#f97316;
+      transition:color .35s ease, transform .35s ease;
     }
 
     .hv-step p{
       margin:0;
       font-size:17px;
       line-height:1.6;
-      color:rgba(255,255,255,.85);
+      color:rgba(17,17,17,.74);
+      transition:color .35s ease;
+    }
+
+    .hv-step:hover,
+    .hv-step.is-active{
+      transform:translateY(-12px);
+      background:rgba(249,115,22,.24);
+      box-shadow:0 24px 60px rgba(249,115,22,.30);
+    }
+
+    .hv-step:hover .hv-step-number,
+    .hv-step.is-active .hv-step-number{
+      color:rgba(249,115,22,.52);
+      transform:translateY(-8px);
+    }
+
+    .hv-step:hover h3,
+    .hv-step.is-active h3{
+      color:#111111;
+      transform:translateY(-4px);
+    }
+
+    .hv-step:hover p,
+    .hv-step.is-active p{
+      color:#111111;
     }
 
     .hv-line{
@@ -2142,7 +2191,7 @@
       left:10%;
       width:80%;
       height:2px;
-      background:rgba(249,115,22,.25);
+      background:rgba(249,115,22,.35);
       z-index:0;
     }
 
@@ -2170,6 +2219,7 @@
         padding-top:55px;
         border-left:2px solid rgba(249,115,22,.3);
         padding-left:20px;
+        padding-right:12px;
       }
 
       .hv-step-number{
@@ -2234,20 +2284,62 @@
     </div>
 
   </div>
+
+  <script>
+    (() => {
+      const processSection = document.querySelector('.hv-process-section');
+      if (!processSection) return;
+
+      const steps = [...processSection.querySelectorAll('.hv-step')];
+      if (!steps.length) return;
+
+      let activeIndex = 0;
+
+      const setActiveStep = (index) => {
+        steps.forEach((step, stepIndex) => {
+          step.classList.toggle('is-active', stepIndex === index);
+        });
+      };
+
+      setActiveStep(activeIndex);
+
+      const cycleSteps = () => {
+        activeIndex = (activeIndex + 1) % steps.length;
+        setActiveStep(activeIndex);
+      };
+
+      let cycleTimer = window.setInterval(cycleSteps, 2000);
+
+      steps.forEach((step, index) => {
+        step.addEventListener('mouseenter', () => {
+          window.clearInterval(cycleTimer);
+          activeIndex = index;
+          setActiveStep(activeIndex);
+        });
+
+        step.addEventListener('mouseleave', () => {
+          cycleTimer = window.setInterval(cycleSteps, 2000);
+        });
+      });
+    })();
+  </script>
 </section>
 
 <section class="hv-cta-section">
   <style>
     .hv-cta-section{
       position:relative;
-      min-height:100vh;
+      min-height:auto;
       overflow:hidden;
-      background:#0f0f0f;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(249,115,22,.28), transparent 30%),
+        radial-gradient(circle at 82% 74%, rgba(249,115,22,.18), transparent 34%),
+        linear-gradient(145deg, #ffffff 0%, #fff1e8 52%, #ffd7bd 100%);
       display:flex;
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding:110px 6%;
+      padding:36px 6%;
       font-family:'Poppins',sans-serif;
     }
 
@@ -2258,7 +2350,7 @@
       font-weight:900;
       line-height:.8;
       letter-spacing:-12px;
-      color:rgba(255,255,255,.035);
+      color:rgba(249,115,22,.10);
       text-transform:uppercase;
       white-space:nowrap;
       animation:ctaTextMove 18s linear infinite;
@@ -2271,7 +2363,7 @@
       width:720px;
       height:720px;
       border-radius:50%;
-      background:radial-gradient(circle,rgba(249,115,22,.35),rgba(249,115,22,.08) 50%,transparent 72%);
+      background:radial-gradient(circle,rgba(249,115,22,.22),rgba(249,115,22,.08) 50%,transparent 72%);
       top:50%;
       left:50%;
       transform:translate(-50%,-50%);
@@ -2282,8 +2374,8 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(120deg,rgba(249,115,22,.16),transparent 32%),
-        linear-gradient(to top,rgba(0,0,0,.45),transparent 55%);
+        linear-gradient(120deg,rgba(249,115,22,.16),transparent 34%),
+        linear-gradient(to top,rgba(255,255,255,.72),transparent 58%);
       pointer-events:none;
     }
 
@@ -2292,12 +2384,12 @@
       z-index:2;
       max-width:1180px;
       width:100%;
-      padding:70px 50px;
-      border:1px solid rgba(255,255,255,.16);
+      padding:42px 42px;
+      border:1px solid rgba(249,115,22,.22);
       border-radius:34px;
-      background:rgba(255,255,255,.06);
+      background:rgba(255,255,255,.72);
       backdrop-filter:blur(16px);
-      box-shadow:0 30px 100px rgba(0,0,0,.35);
+      box-shadow:0 30px 100px rgba(249,115,22,.22);
     }
 
     .hv-cta-label{
@@ -2312,9 +2404,9 @@
 
     .hv-cta-title{
       margin:0;
-      color:#fff;
-      font-size:clamp(64px,7.8vw,150px);
-      line-height:.86;
+      color:#111;
+      font-size:clamp(46px,6vw,108px);
+      line-height:.88;
       font-weight:900;
       letter-spacing:-6px;
       text-transform:uppercase;
@@ -2326,15 +2418,19 @@
 
     .hv-cta-desc{
       max-width:760px;
-      margin:34px auto 0;
-      font-size:22px;
+      margin:22px auto 0;
+      font-size:19px;
       line-height:1.55;
-      color:rgba(255,255,255,.82);
+      color:rgba(17,17,17,.76);
       font-weight:500;
+      text-decoration:underline;
+      text-decoration-color:#f97316;
+      text-decoration-thickness:2px;
+      text-underline-offset:8px;
     }
 
     .hv-cta-buttons{
-      margin-top:48px;
+      margin-top:30px;
       display:flex;
       justify-content:center;
       gap:18px;
@@ -2347,7 +2443,7 @@
       align-items:center;
       justify-content:center;
       min-width:210px;
-      padding:17px 34px;
+      padding:14px 30px;
       border-radius:60px;
       text-decoration:none;
       font-size:16px;
@@ -2362,9 +2458,9 @@
     }
 
     .hv-btn-secondary{
-      color:#fff;
-      border:1px solid rgba(255,255,255,.65);
-      background:rgba(255,255,255,.04);
+      color:#111;
+      border:1px solid rgba(249,115,22,.55);
+      background:rgba(255,255,255,.62);
     }
 
     .hv-btn-primary:hover,
@@ -2373,8 +2469,8 @@
     }
 
     .hv-btn-secondary:hover{
-      background:#fff;
-      color:#111;
+      background:#111;
+      color:#fff;
     }
 
     @keyframes ctaTextMove{
@@ -2384,8 +2480,8 @@
 
     @media(max-width:768px){
       .hv-cta-section{
-        min-height:100vh;
-        padding:70px 16px;
+        min-height:auto;
+        padding:28px 16px;
       }
 
       .hv-cta-bg-text{
@@ -2400,7 +2496,7 @@
       }
 
       .hv-cta-card{
-        padding:46px 20px;
+        padding:30px 18px;
         border-radius:24px;
       }
 
@@ -2411,19 +2507,19 @@
       }
 
       .hv-cta-title{
-        font-size:46px;
+        font-size:36px;
         line-height:.92;
         letter-spacing:-2px;
       }
 
       .hv-cta-desc{
-        margin-top:24px;
-        font-size:15px;
+        margin-top:16px;
+        font-size:14px;
         line-height:1.6;
       }
 
       .hv-cta-buttons{
-        margin-top:32px;
+        margin-top:22px;
         gap:12px;
       }
 
@@ -2688,14 +2784,14 @@
 
   <div class="channel-slide active">
     <div class="channel-left">
-      <h2 class="channel-main-title">Our<br>Channels.</h2>
+      <h2 class="channel-main-title">Our<br>Works.</h2>
 
       <div class="channel-stats">
         Youtube : 8.2 Million Subscribers<br>
         Instagram : 4.3 Million Followers
       </div>
 
-      <h3 class="channel-name">Beerbiceps.</h3>
+      <h3 class="channel-name">Hasta Ventures.</h3>
 
       <div class="channel-nav">
         <a href="#">Youtube</a>
@@ -2861,7 +2957,7 @@
     .team-right-card img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;
       filter: grayscale(100%) brightness(55%);
       transition: transform 0.8s ease, filter 0.8s ease;
     }
@@ -3021,7 +3117,7 @@
   <div class="team-slider">
     <div class="team-slide active">
       <div class="team-left">
-        <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+        <img src="https://i.pinimg.com/736x/fc/79/f8/fc79f81dcb4c5497c58949208a2cc7b3.jpg" alt="">
         <div class="team-title">our<br>team.</div>
         <div class="team-detail">
           <h3>Ranveer<br>Allahbadia</h3>
@@ -3031,7 +3127,7 @@
 
       <div class="team-right">
         <div class="team-right-card">
-          <img src="https://i.pinimg.com/736x/f4/8d/42/f48d42562d957aa5ea3546fd88da9013.jpg" alt="">
+          <img src="https://i.pinimg.com/1200x/7a/a1/db/7aa1dbae860dd50acb959ae6a180177f.jpg" alt="">
           <div class="team-detail">
             <h3>Team Member</h3>
             <p>Creative Director</p>
@@ -3039,7 +3135,7 @@
         </div>
 
         <div class="team-right-card">
-          <img src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg" alt="">
+          <img src="https://i.pinimg.com/736x/f6/47/f1/f647f16dd549987a9eda380e29265497.jpg" alt="">
           <div class="team-detail">
             <h3>Team Member</h3>
             <p>Technology Lead</p>
@@ -3934,7 +4030,7 @@
 
     <img
       class="who-main-img"
-      src="https://i.pinimg.com/736x/8a/65/e0/8a65e042518b64d3e89845155f98edba.jpg"
+      src="image-removebg-preview (4).png"
       alt="Hasta Ventures">
   </div>
 </section>
